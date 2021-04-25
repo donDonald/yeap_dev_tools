@@ -1,0 +1,27 @@
+{
+  "name": "yeap_lib",
+  "version": "1.0.0",
+  "description": "general tools",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "mocha lib/tsrc/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donDonald/yeap_lib.git"
+  },
+  "author": "Pavel Taranov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/donDonald/yeap_lib/issues"
+  },
+  "homepage": "https://github.com/donDonald/yeap_lib#readme",
+  "dependencies": {
+    "express-validator": "^6.10.1",
+    "passport": "^0.4.1",
+    "request": "^2.88.2"
+  }
+}
