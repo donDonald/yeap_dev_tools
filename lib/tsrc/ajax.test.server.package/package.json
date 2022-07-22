@@ -1,0 +1,15 @@
+{
+  "name": "ajax.test.server.package",
+  "version": "1.0.0",
+  "description": "test package for ajax",
+  "directories": {
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+  },
+  "author": "Pavel Taranov",
+  "license": "MITfucking proprietary",
+  "dependencies": {}
+}

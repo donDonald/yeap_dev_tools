@@ -1,0 +1,57 @@
+version: '3.2'
+
+
+
+networks:
+    postgres:
+        driver: bridge
+
+
+
+volumes:
+    postgres-data:
+        driver: local
+
+
+
+services:
+
+
+
+    postgres:
+        # https://hub.docker.com/_/postgres
+        image: postgres:12
+        hostname: postgres
+        #container_name: pg_test_postgres_1
+        restart: unless-stopped
+        volumes:
+            - postgres-data:/var/lib/postgresql/data
+        environment:
+            POSTGRES_DB: ${POSTGRES_DB}
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            # command: postgres -c shared_buffers=512MB -c effective_cache_size=1536MB -c work_mem=2621kB -c maintenance_work_mem=128MB shm_size: '1gb'
+        ports:
+            - 55432:5432
+        networks:
+            - postgres
+
+
+
+    pgadmin:
+        # https://hub.docker.com/r/dpage/pgadmin4/
+        # https://www.pgadmin.org/docs/pgadmin4/latest/container_deployment.html
+        image: dpage/pgadmin4:6.8
+        hostname: pgadmin
+        #container_name: pg_test_pgadmin_1
+        restart: unless-stopped
+        volumes:
+            - ./servers.json:/pgadmin4/servers.json # Assign pgadmin a list of DB servers here.
+        environment:
+            PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+            PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+        ports:
+            - 51111:80
+        networks:
+            - postgres
+

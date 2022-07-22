@@ -1,0 +1,16 @@
+{
+  "name": "Pm2.test.package",
+  "version": "1.0.0",
+  "description": "test package for pm2 helper tool for lunching npm modules",
+  "directories": {
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+  },
+  "author": "Pavel Taranov",
+  "license": "Very fucking proprietary",
+  "dependencies": {
+  }
+}

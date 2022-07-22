@@ -20,8 +20,8 @@ while read event; do
     if [[ "$event" == *" container start "* ]] || [[ "$event" == *" network disconnect "* ]]; then
         hosts_file_tmp="$(mktemp)"
         docker container ls -q | xargs -r docker container inspect | \
-        #jq -r '.[]|"\(.NetworkSettings.Networks[].IPAddress|select(length > 0) // "# no ip address:") \(.Name|sub("^/"; "")|sub("_1$"; ""))"' | \
-        jq -r '.[]|"\(.NetworkSettings.Networks[].IPAddress|select(length > 0) // "# no ip address:") \(.Name|sub("^/[a-zA-Z0-9]*_"; "")|sub("_1$"; ""))"' | \
+        jq -r '.[]|"\(.NetworkSettings.Networks[].IPAddress|select(length > 0) // "# no ip address:") \(.Name|sub("^/"; "")|sub("_1$"; ""))"' | \
+        #jq -r '.[]|"\(.NetworkSettings.Networks[].IPAddress|select(length > 0) // "# no ip address:") \(.Name|sub("^/[a-zA-Z0-9]*_"; "")|sub("_1$"; ""))"' | \
         sed -ne "/^${begin_block}$/ {p; r /dev/stdin" -e ":a; n; /^${end_block}$/ {p; b}; ba}; p" "$hosts_file" \
         > "$hosts_file_tmp"
         chmod 644 "$hosts_file_tmp"
