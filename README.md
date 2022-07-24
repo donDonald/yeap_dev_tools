@@ -14,9 +14,17 @@ Set of tools ment to be used for testing purposes:
 * docker_compose - for launching docker-compose files
 * ajax - for sending AJAX requests
 * Pm2 - for launching node packages witn pm2 tool(I maight want start using pm2 packages later on)
+* ServerHost - a tool for managin apps powered by [yeap_app_server](https://github.com/donDonald/yeap_app_server) in host mode
+* ServerDocker - a tool for managin apps powered by [yeap_app_server](https://github.com/donDonald/yeap_app_server) in docker mode
 ---
 
 # Quick start
+
+### Prerequisites
+Next tools are installed:
+* docker
+* docker-compose
+* pm2
 
 ### Install mocha test framework
 ```
