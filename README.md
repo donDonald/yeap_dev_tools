@@ -24,7 +24,11 @@ Set of tools ment to be used for testing purposes:
 Next tools are installed:
 * docker
 * docker-compose
-* pm2
+
+### Install pm2 tool for managing node processes
+```
+$ sudo npm install pm2 -g
+```
 
 ### Install mocha test framework
 ```

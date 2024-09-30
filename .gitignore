@@ -7,3 +7,5 @@ node_modules/
 # Hidden files
 .*
 
+lib/tsrc/Pm2.test2.package/config/balancer.js
+lib/tsrc/Pm2.test2.package/config/services.js
